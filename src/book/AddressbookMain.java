@@ -91,65 +91,29 @@ public class AddressbookMain {
 
 	}
 
-	/// editing contact by searching names
-	public void editPerson1() {
-		System.out.println("Enter the name to edit");
+	public void deletePerson() {
+		System.out.println("Enter the name to search and delete");
 		String s = scanner.next();
-
 		for (int i = 0; i < person.size(); i++) {
 			AddressBook p = person.get(i);
 			if (s.equals(p.getfname())) {
-				while (true) {
-					System.out.println("Enter choice to edit 1)firstName\n2)lastName\n3)city\n"
-							+ "4)state\n5)zip\n6)address\n7)phoneNo\n8)email\n9)exit");
-					int choice = scanner.nextInt();
-					switch (choice) {
-					case 1:
-						p.setfname(scanner.next());
-						break;
-					case 2:
-						p.setlname(scanner.next());
-						break;
-					case 3:
-						p.setcity(scanner.next());
-						break;
-					case 4:
-						p.setstate(scanner.next());
-						break;
-					case 5:
-						p.setzip(scanner.next());
-
-						break;
-					case 6:
-						p.setaddress(scanner.next());
-						break;
-					case 7:
-						p.setphoneNo(scanner.next());
-						break;
-					case 8:
-						p.setemail(scanner.next());
-						break;
-					default:
-						System.out.println("select correct choice");
-						break;
-					}// end of switch
-					if (choice == 9)
-						break;
-				} // end while
-				person.set(i, p);
-				System.out.println("person after editing");
-				System.out.println(person);
-
-			} // end of if
-		} // end of for loop
-
+				person.remove(i);
+			}
+		}
+		System.out.println("AddressBook after deletion");
+		if (person.isEmpty() != true)
+			System.out.println(person);
+		else {
+			System.out.println("AddressBook deleted");
+		}
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		AddressbookMain main = new AddressbookMain();
 		main.addPerson();
-		main.editPerson1();
+		main.editPerson();
+		main.deletePerson();
 	}
 
 }
