@@ -91,29 +91,11 @@ public class AddressbookMain {
 
 	}
 
-	public void deletePerson() {
-		System.out.println("Enter the name to search and delete");
-		String s = scanner.next();
-		for (int i = 0; i < person.size(); i++) {
-			AddressBook p = person.get(i);
-			if (s.equals(p.getfname())) {
-				person.remove(i);
-			}
-		}
-		System.out.println("AddressBook after deletion");
-		if (person.isEmpty() != true)
-			System.out.println(person);
-		else {
-			System.out.println("AddressBook deleted");
-		}
-	}
-
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		AddressbookMain main = new AddressbookMain();
-		main.addPerson();
-		main.editPerson();
-		main.deletePerson();
-	}
 
+		AddressbookMain ab = new AddressbookMain();
+		ab.addPerson();
+		ab.editPerson();
+		// ab.deletePerson();
+	}
 }
