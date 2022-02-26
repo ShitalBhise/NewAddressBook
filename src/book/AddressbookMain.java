@@ -91,11 +91,47 @@ public class AddressbookMain {
 
 	}
 
+	public void deletePerson() {
+		System.out.println("Enter the name to search and delete");
+		String s = scanner.next();
+		for (int i = 0; i < person.size(); i++) {
+			AddressBook p = person.get(i);
+			if (s.equals(p.getfname())) {
+				person.remove(i);
+			}
+		}
+		System.out.println("AddressBook after deletion");
+		if (person.isEmpty() != true)
+			System.out.println(person);
+		else {
+			System.out.println("AddressBook deleted");
+		}
+	}
+
+	public void addMultiplePerson() {
+		while (true) {
+			System.out.println(
+					"Enter the option \n1)To Add person  \n2)To Edit person" + "\n3)To Delete person \n4)exit");
+			int option = scanner.nextInt();
+			switch (option) {
+			case 1 -> addPerson();
+			case 2 -> editPerson();
+			case 3 -> deletePerson();
+			case 4 -> System.out.println("exiting");
+			default -> System.out.println("invalid option");
+			}
+			if (option == 4)
+				break;
+		}
+	}
+
 	public static void main(String[] args) {
 
 		AddressbookMain ab = new AddressbookMain();
-		ab.addPerson();
-		ab.editPerson();
-		// ab.deletePerson();
+		/// ab.addPerson();
+		/// ab.editPerson();
+		/// ab.deletePerson();
+		ab.addMultiplePerson();
+
 	}
 }
