@@ -21,7 +21,6 @@ public class MultipleBook {
 				System.out.println("Exiting from addressbooks");
 				System.exit(0);
 				break;
-
 			case 1:
 				System.out.println("Enter the addressbook number");
 				int N = scanner.nextInt();
